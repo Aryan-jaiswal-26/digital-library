@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Books - Digital Library</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Digital Library</h1>
+    <nav class="nav-bar">
+      <!-- Centered Menu -->
+      <ul class="nav-center">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+  
+      <div class="auth-buttons">
+        <a href="login.html" class="auth-btn">Login</a>
+        <a href="register.html" class="auth-btn">Register</a>
+      </div>
+      
+    </nav>
+  </header>
+  
+  
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search books..." />
+    <button id="clearBtn" onclick="clearSearch()">❌</button>
+  </div>
+
+  <!-- Book Categories -->
+  <div class="category-grid">
+    <a href="science.html" class="category-box">
+      <div class="book">
+        <h3>💻 1st Year Computer Engineering</h3>
+        <p>Explore books in Math, Physics, Chemistry & more</p>
+      </div>
+    </a>
+
+    <a href="second-year.html" class="category-box">
+      <div class="book">
+        <h3>💻 2nd Year Computer Engineering</h3>
+        <p>DSA, OOP, OS, CN, DBMS</p>
+      </div>
+    </a>
+
+    <a href="third-year.html" class="category-box">
+      <div class="book">
+        <h3>💻 3rd Year Computer Engineering</h3>
+        <p>TOC, AI, IoT, Web Tech</p>
+      </div>
+    </a>
+
+    <a href="fourth-year.html" class="category-box">
+      <div class="book">
+        <h3>💻 4th Year Computer Engineering</h3>
+        <p>ML, Blockchain, Cloud</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Digital Library. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Live search function
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("keyup", function () {
+      const filter = searchInput.value.toLowerCase();
+      const books = document.querySelectorAll(".book");
+
+      books.forEach(book => {
+        const text = book.textContent.toLowerCase();
+        book.style.display = text.includes(filter) ? "block" : "none";
+      });
+    });
+
+    // Clear search input
+    function clearSearch() {
+      document.getElementById("searchInput").value = "";
+      const books = document.querySelectorAll(".book");
+      books.forEach(book => book.style.display = "block");
+    }
+  </script>
+
+</body>
+</html>
